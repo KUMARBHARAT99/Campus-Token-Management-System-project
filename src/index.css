@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans antialiased;
+  }
+  * {
+    @apply border-slate-200;
+  }
+}
+
+@layer components {
+  /* Common Buttons & Form Controls */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 active:scale-[.98];
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white shadow-sm hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-lg hover:shadow-brand-600/20 focus:ring-brand-500;
+  }
+  .btn-secondary {
+    @apply btn border bg-white text-slate-700 shadow-sm hover:-translate-y-0.5 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700 focus:ring-brand-500;
+  }
+  .btn-danger {
+    @apply btn border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 focus:ring-red-500;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-slate-600 hover:bg-slate-100 focus:ring-brand-500;
+  }
+  .btn-hero-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/10 px-5 py-3.5 text-sm font-bold text-white backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 hover:shadow-xl active:scale-95;
+  }
+  .btn-glow {
+    @apply transition-all duration-300 hover:shadow-[0_16px_40px_rgba(14,165,233,.25)];
+  }
+
+  .input {
+    @apply w-full rounded-xl border bg-white px-3.5 py-2.5 text-sm text-slate-800 shadow-sm placeholder:text-slate-400 transition focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-slate-700;
+  }
+  .nav-link {
+    @apply inline-flex items-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-100 hover:text-slate-950 active:scale-95;
+  }
+
+  /* Cards & Layout Containers */
+  .card {
+    @apply rounded-2xl border bg-white shadow-[0_8px_30px_rgba(15,23,42,.05)] transition-shadow duration-200;
+  }
+  .card-pad {
+    @apply card p-5 sm:p-6;
+  }
+  .kpi {
+    @apply card relative overflow-hidden p-5 hover:shadow-[0_16px_40px_rgba(15,23,42,.09)];
+  }
+  .lift-card {
+    @apply transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,.10)] active:scale-[.99];
+  }
+
+  /* Typography & Sections */
+  .section-eyebrow {
+    @apply text-xs font-extrabold uppercase tracking-[.2em] text-sky-600;
+  }
+  .section-title {
+    @apply mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl;
+  }
+  .section-copy {
+    @apply mt-3 text-sm leading-6 text-slate-500 sm:text-base;
+  }
+
+  /* Profile Components */
+  .profile-hero {
+    @apply relative overflow-hidden border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,.07)];
+  }
+  .profile-hero-bg {
+    @apply absolute inset-0 h-36 bg-gradient-to-r from-slate-950 via-slate-900 to-sky-900;
+  }
+  .profile-avatar {
+    @apply flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border-4 border-white bg-sky-50 text-4xl shadow-xl ring-1 ring-slate-200;
+  }
+  .profile-avatar img {
+    @apply h-full w-full object-cover;
+  }
+  .profile-chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-sky-200 bg-sky-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-sky-700;
+  }
+  .profile-section {
+    @apply flex min-h-[104px] items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg;
+  }
+  .profile-section-icon {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-950 text-sky-300;
+  }
+  .profile-info {
+    @apply flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4;
+  }
+  .profile-action {
+    @apply flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100;
+  }
+  .profile-edit-section {
+    @apply rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5;
+  }
+  .profile-edit-section h4 {
+    @apply mb-4 text-sm font-extrabold text-slate-900;
+  }
+  .optional {
+    @apply text-[10px] font-normal uppercase tracking-wider text-slate-400;
+  }
+  .avatar-option {
+    @apply flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-white text-xl shadow-sm transition duration-200 hover:-translate-y-1 hover:border-sky-300 hover:shadow-md;
+  }
+  .avatar-option.selected {
+    @apply border-sky-500 bg-sky-50 ring-2 ring-sky-500/15;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  background-clip: content-box;
+}
+
+/* Custom Animations */
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.animate-float-soft {
+  animation: floatSoft 5s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-rise {
+  animation: rise 0.7s ease-out both;
+}
+
+.profile-progress {
+  transition: stroke-dasharray 0.8s ease-out;
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Token pass print/PDF view: keep the physical pass to one page and hide the
+   request-details sidebar/timeline. The emailed PDF is generated server-side
+   with the same information set. */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm;
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  [data-token-card],
+  [data-token-card] * {
+    visibility: visible !important;
+  }
+
+  [data-token-card] {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+}
